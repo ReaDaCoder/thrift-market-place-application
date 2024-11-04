@@ -1,0 +1,8 @@
+Display UI 
+User will see the login page, if the user is not yet registered they will see a link belowthe login box.
+When users click on the link they wil be redirected to the registreation page where they will add their details and create an account where hey will be able to use the application.
+Once users have registered/created an account, they will be redirected to the homepage.
+The homepage will display products/items that have already been listed by other users.
+The top part of the page (header) will contain the navigation by that will allow users to navigate to different pages.
+The navigation bar will have buttons to the user's profile, the hompage, option to list items and search bar where theyb can search for specifc items that they would like to purchase.
+Belpow the navbar the page will display the listed items in a grid. Each box grid will have button to add items in the cart.
