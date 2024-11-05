@@ -5,6 +5,9 @@ import {app, database} from '../firebaseConfig';
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
 export default function LogiPage(){
+  let auth = getAuth();
+  const [data, setData] = useState('');
+  const navigate = useNavigate();
    
     function handleInput(event){
         let newInput = {[event.target.name]: event.target.value};
