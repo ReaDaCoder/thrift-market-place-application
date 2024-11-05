@@ -40,7 +40,7 @@ export default function SellPage(){
                 .then((snapshot) => {
                     const itemsArray = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
                     console.log("Rooms Data:", itemsArray);
-                    setRoom(itemsArray);
+                    setItem(itemsArray);
                 })
                 .catch((error) => {
                     console.error('Error fetching items:', error);
@@ -51,22 +51,44 @@ export default function SellPage(){
     
     function handleSubmit(event){
         event.preventDefault();
-        console.log(room);
         addDoc(collectionStore, {
           // img: room.img,
-          room: room.room,
-          description:room.description, 
-          price: room.price,
-          availability: room.availability
+          room: item.room,
+          description:item.description, 
+          price: item.price,
+          availability: item.availability
     
         })
         .then(()=>{
-          alert("Room added")
+          alert("Item added")
         })
         .catch((err)=>{
           alert(err.message);
         })
       }
+
+      function handleInputChange(e) {
+        const { name, value } = e.target;
+        console.log(value)
+        setItem(prevState => ({
+            ...prevState,
+            [name]: value
+        }));
+      }
+
+      
+    function handleClick(e){
+      let imgRef = ref(imageDb, `files/${uuidv4()}`)
+    uploadBytes(imgRef,img).then((snapshot)=>{
+      getDownloadURL(snapshot.ref).then((url)=>{
+        console.log(url)
+        setItem(prevState => ({
+          ...prevState,
+          img: url
+      }));
+      }).catch((err)=>console.error(err))
+    }).catch((err)=>console.log(err))
+    }
 
     return(
         <div>
@@ -82,16 +104,15 @@ export default function SellPage(){
                             </div>
                             <input type="file" onChange={(e)=>handleUpload(e)}/>
                             <label htmlFor="fname">Type of item:</label><br/>
-                            <input type="text" placeholder='Enter text' name="room" value={item.item} onChange={handleInputChange}/>
+                            <input type="text" placeholder='Enter text' name="item" value={item.item} onChange={handleInputChange}/>
                            <label htmlFor="fname">Add description:</label><br/>
                             <input type="text" placeholder='Enter text'name="description" value={item.description} onChange={handleInputChange}/>
                             <label htmlFor="fname">Add Price:</label><br/>
                             <input type="number" placeholder='Enter text'name="price" value={item.price} onChange={handleInputChange}/>
                             <label htmlFor="fname">Availability:</label><br/>
                             <input type="text" placeholder='Enter text' name="availability" value={item.availability} onChange={handleInputChange}/>
-                            <button type="submit" onClick={handleSubmit}>Add Room</button>
+                            <button type="submit" onClick={handleSubmit}>Add Item</button>
             </form>
-            <button>Add item</button>
             </header>
         </div>
     )

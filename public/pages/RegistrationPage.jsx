@@ -9,8 +9,8 @@ export default function RegistrationPage(){
   const collectionRef = collection(database, 'users');
 
   const [user, setUser] = useState({
-    name: "",
-    surname: "",
+    // name: "",
+    // surname: "",
     email: "",
     password: "",
     confirmPassword: "",
@@ -38,8 +38,8 @@ export default function RegistrationPage(){
     })
 
     addDoc(collectionRef, {
-      name: user.name,
-      surname: user.surname,
+      // name: user.name,
+      // surname: user.surname,
       email: user.email,
       password: user.password
     })
@@ -69,22 +69,22 @@ export default function RegistrationPage(){
           <h1>Sign up</h1>
             <div className="signup-box">
       <form onSubmit={handleSubmit}>
-        <input
+        {/* <input
           type="text"
           name="name"
           placeholder="First Name"
           value={user.name}
           onChange={handleInputChange}
           required
-        /><br/>
-        <input
+        /><br/> */}
+        {/* <input
           type="text"
           name="surname"
           placeholder="Last Name"
           value={user.surname}
           onChange={handleInputChange}
           required
-        /><br/>
+        /><br/> */}
         <input
           type="email"
           name="email"
@@ -101,14 +101,14 @@ export default function RegistrationPage(){
           onChange={handleInputChange}
           required
         /><br/>
-        <input
+        {/* <input
           type="password"
-          name="confirmPassword"
-          placeholder="Confirm Password"
-          value={user.confirmPassword}
+          name="password"
+          placeholder="password"
+          value={user.password}
           onChange={handleInputChange}
           required
-        />
+        /> */}
         <div className="card">
                                 <img src="https://i0.wp.com/digitalhealthskills.com/wp-content/uploads/2022/11/3da39-no-user-image-icon-27.png?fit=500%2C500&ssl=1" alt="User" width="100px"/>
                                 <br/>
