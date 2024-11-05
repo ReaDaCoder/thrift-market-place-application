@@ -40,7 +40,7 @@ export default function SellPage(){
             getDocs(collectionStore)
                 .then((snapshot) => {
                     const itemsArray = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-                    console.log("Rooms Data:", itemsArray);
+                    console.log("Items Data:", itemsArray);
                     setItem(itemsArray);
                 })
                 .catch((error) => {
@@ -54,7 +54,7 @@ export default function SellPage(){
         event.preventDefault();
         addDoc(collectionStore, {
           // img: room.img,
-          room: item.room,
+          item: item.item,
           description:item.description, 
           price: item.price,
           availability: item.availability,
