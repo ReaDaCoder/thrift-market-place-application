@@ -4,7 +4,7 @@ import {useNavigation, useNavigate, Link} from "react-router-dom";
 import {app, database} from '../firebaseConfig';
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
-export default function LogiPage(){
+export default function LoginPage(){
   let auth = getAuth();
   const [data, setData] = useState('');
   const navigate = useNavigate();

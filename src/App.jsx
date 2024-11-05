@@ -5,7 +5,7 @@ import {
   Routes,
   Route
 } from "react-router-dom";
-import LogiPage from '../public/pages/LoginPage';
+import LoginPage from '../public/pages/LoginPage';
 import RegistrationPage from '../public/pages/RegistrationPage';
 import HomePage from '../public/pages/HomePage';
 import SellPage from '../public/pages/SellPage';
@@ -18,7 +18,7 @@ function App() {
     <div className="App">
       <BrowserRouter>
      <Routes>
-     <Route index element={<LogiPage />} />
+     <Route index element={<LoginPage />} />
      <Route path="/RegistrationPage" element={<RegistrationPage />} />
      <Route path="/HomePage" element={<HomePage />} />
      <Route path="/SellPage" element={<SellPage />} />
