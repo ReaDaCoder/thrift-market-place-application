@@ -52,7 +52,7 @@ export default function LogiPage(){
 <input type="checkbox" className="form-check-input" id="check1" />
 <label className="form-check">Check me out</label>
 <button type="submit" className="btn btn-primary" onClick={handleSubmit}>Submit</button>
-{/* <Link to="RegistrationPage">Don't have an account : Sign Up</Link>  */}
+<Link to="RegistrationPage">Don't have an account : Sign Up</Link> 
     </div>
 </div>
         </>
