@@ -7,6 +7,8 @@ import {
 } from "react-router-dom";
 import LogiPage from '../public/pages/LoginPage';
 import RegistrationPage from '../public/pages/RegistrationPage';
+import HomePage from '../public/pages/HomePage';
+import SellPage from '../public/pages/SellPage';
 import './login.css'
 
 function App() {
@@ -18,6 +20,8 @@ function App() {
      <Routes>
      <Route index element={<LogiPage />} />
      <Route path="/RegistrationPage" element={<RegistrationPage />} />
+     <Route path="/HomePage" element={<HomePage />} />
+     <Route path="/SellPage" element={<SellPage />} />
      </Routes>
      </BrowserRouter>
     </div>
