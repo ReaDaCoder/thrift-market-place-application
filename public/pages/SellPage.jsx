@@ -31,7 +31,8 @@ export default function SellPage(){
         price: "",
         availability: "",
     });
-
+    
+    const [items, setItems] = useState([]);
     const [img, setImg] =useState('');
 
     useEffect(() => {
@@ -56,7 +57,8 @@ export default function SellPage(){
           room: item.room,
           description:item.description, 
           price: item.price,
-          availability: item.availability
+          availability: item.availability,
+          img: item.img
     
         })
         .then(()=>{
@@ -114,6 +116,35 @@ export default function SellPage(){
                             <button type="submit" onClick={handleSubmit}>Add Item</button>
             </form>
             </header>
+
+
+            <main>
+            <Card>
+                      {Object.values(item).map((value, index) => (
+    <div key={index}>
+          <>
+          <Image src='/' wrapped ui={false} />
+    <CardContent>
+      <CardHeader>{value.items}</CardHeader>
+      <CardMeta>
+        <span className='date'>{value.price}</span>
+      </CardMeta>
+      <CardDescription>
+        {value.description}
+      </CardDescription>
+    </CardContent>
+    <CardContent extra>
+      <a>
+        <Icon name='user' />
+        {value.capacity}
+      </a>
+    </CardContent>
+          </>
+    </div>
+))}
+
+  </Card>
+            </main>
         </div>
     )
 }
