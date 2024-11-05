@@ -23,3 +23,4 @@ const firebaseConfig = {
 export const app = initializeApp(firebaseConfig);
 export const database = getFirestore(app);
 const analytics = getAnalytics(app);
+export const imageDb = getStorage(app);

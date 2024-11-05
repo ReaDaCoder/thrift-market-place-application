@@ -31,10 +31,10 @@ export default function LoginPage(){
            <>
            <h1>The Thrift Market Place</h1>
            <div className="grid-container-element">
-    <div className="grid-child-element purple">Grid Column 1
+    <div className="grid-child-element purple">
     <img src="./thrift-img.jpg" className="login-img" width="450px"/>
     </div>
-    <div className="grid-child-element green">Grid Column 2
+    <div className="grid-child-element green">
          <label  className="form-label">Email address</label>
 <input
     name="email"

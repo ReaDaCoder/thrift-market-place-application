@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState, useEffect } from 'react';
 import Navbar from '../../src/components/Navbar';
 import '../../src/sellpage.css';
 import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
@@ -15,41 +16,6 @@ import {v4 as uuidv4} from "uuid";
     Image,
   } from 'semantic-ui-react';
 
-  const [img, setImg] =useState('');
-
-  useEffect(() => {
-    const fetchItems = () => {
-        getDocs(collectionStore)
-            .then((snapshot) => {
-                const itemsArray = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-                console.log("Rooms Data:", itemsArray);
-                setRoom(itemsArray);
-            })
-            .catch((error) => {
-                console.error('Error fetching items:', error);
-            });
-    };
-    fetchItems();
-}, []);
-
-function handleSubmit(event){
-    event.preventDefault();
-    console.log(room);
-    addDoc(collectionStore, {
-      // img: room.img,
-      room: room.room,
-      description:room.description, 
-      price: room.price,
-      availability: room.availability
-
-    })
-    .then(()=>{
-      alert("Room added")
-    })
-    .catch((err)=>{
-      alert(err.message);
-    })
-  }
 
 
 export default function SellPage(){
@@ -65,6 +31,42 @@ export default function SellPage(){
         price: "",
         availability: "",
     });
+
+    const [img, setImg] =useState('');
+
+    useEffect(() => {
+        const fetchItems = () => {
+            getDocs(collectionStore)
+                .then((snapshot) => {
+                    const itemsArray = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+                    console.log("Rooms Data:", itemsArray);
+                    setRoom(itemsArray);
+                })
+                .catch((error) => {
+                    console.error('Error fetching items:', error);
+                });
+        };
+        fetchItems();
+    }, []);
+    
+    function handleSubmit(event){
+        event.preventDefault();
+        console.log(room);
+        addDoc(collectionStore, {
+          // img: room.img,
+          room: room.room,
+          description:room.description, 
+          price: room.price,
+          availability: room.availability
+    
+        })
+        .then(()=>{
+          alert("Room added")
+        })
+        .catch((err)=>{
+          alert(err.message);
+        })
+      }
 
     return(
         <div>
